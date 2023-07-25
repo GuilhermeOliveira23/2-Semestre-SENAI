@@ -1,0 +1,30 @@
+Banco de dados
+
+Banco de dados relacional -> informações organizadas em tabelas
+
+Sgdd -> Bancos de dados não relacionais -> não usam tabelas
+
+base de dados exemplo -> Gamer_tarde no SSMS
+
+banco de dados estruturado -> Flexível, guardado em tabelas com informações de fácil acesso
+
+banco de dados não estruturado -> Informações podem ser difíceis de serem resgatadas, menos flexível
+
+Regra de negócio exemplo -> só pode cadastrar o usuário se tiver permissão do administrador
+
+MER(modelo conceitual) -> modelo entidade relacionamento (1-identifica as identidades, 2-descobre o relacionamento entre entidades)
+
+relações(cardinalidade)-> 1 para 1, 1 para muitos(1 para n), e muitos para muitos (n para n)
+
+entidade -> objeto
+entidade física exemplo -> cliente
+entidade lógica exemplo -> venda, compra e etc
+
+Orientação objeto -> encapsulamento, polimorfismo, herança e abstração
+
+banco  de dados relacional -> cada registro é uma linha e cada coluna é um campo
+
+
+link para saber mais sobre -> https://www.devmedia.com.br/mer-e-der-modelagem-de-bancos-de-dados/14332
+
+
