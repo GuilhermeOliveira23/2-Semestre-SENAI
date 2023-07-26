@@ -28,3 +28,11 @@ banco  de dados relacional -> cada registro é uma linha e cada coluna é um cam
 link para saber mais sobre -> https://www.devmedia.com.br/mer-e-der-modelagem-de-bancos-de-dados/14332
 
 
+Foreign Key e Primary Key
+
+Tabela primária -> não possui uma ligação por si própria, mas serve de foreignkey para uma tabela relacionada
+
+
+
+
+
