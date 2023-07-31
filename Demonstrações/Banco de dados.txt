@@ -1,0 +1,27 @@
+Banco de dados
+
+--DDL - DATA DEFINITION LANGUAGE
+
+--Cria banco de dados
+CREATE DATABASE BancoTarde;
+
+--cria a tabela
+
+CREATE TABLE Funcionarios
+(
+IdFuncionario INT PRIMARY KEY IDENTITY,
+Nome VARCHAR(10)
+
+);
+
+CREATE TABLE Empresas
+(
+
+IdEmpresa INT PRIMARY KEY IDENTITY,
+IdFuncionario INT FOREIGN KEY REFERENCES Funcionarios(idFuncionario),
+Nome VARCHAR(10)
+
+)
+
+
+[Name] - colchetes para ignorar comandos reservados no sql
