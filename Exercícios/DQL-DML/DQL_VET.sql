@@ -1,4 +1,4 @@
---DQL
+--DQL---------------------------
 
 Create Database Exercicio_1_3_Tarde
 Use Exercicio_1_3_Tarde
@@ -61,3 +61,5 @@ Descricao VARCHAR(50) NOT NULL,
 )
 
 
+Drop table Pet
+Drop table Atendimentos
