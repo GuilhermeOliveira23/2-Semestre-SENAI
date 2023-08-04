@@ -1,6 +1,9 @@
 --DQL
 
+
+Create Database Exercicio_1_2_Tarde
 Use Exercicio_1_2_Tarde
+
 CREATE TABLE Cliente
 (
 IdCliente INT PRIMARY KEY IDENTITY,
@@ -41,8 +44,16 @@ CREATE TABLE Aluguel(
 IdAluguel INT PRIMARY KEY IDENTITY,
 IdVeiculo INT FOREIGN KEY REFERENCES Veiculo(IdVeiculo),
 IdCliente INT FOREIGN KEY REFERENCES Cliente(IdCliente),
-Protocolo VARCHAR(80) NOT NULL
+Protocolo VARCHAR(80) NOT NULL,
+DataInicio DATETIME NOT NULL,
+DataFim DATETIME NOT NULL
 )
+
+
+
+
+
+
 drop table Aluguel
 
 Select * FROM Veiculo
