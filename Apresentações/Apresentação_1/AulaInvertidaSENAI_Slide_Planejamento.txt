@@ -1,0 +1,63 @@
+
+Link: https://www.devmedia.com.br/construindo-funcoes-para-sql-server/20934
+
+
+O que são as Funções em SQL?
+
+Funções em T-SQL são rotinas que retornam valores ou tabelas. 
+Com elas você poderá construir visões parametrizadas ou ainda construir suas próprias funções, semelhantes a DATE(), STUFF(), LTrim() dentre outras.
+Existem três tipos de funções possíveis. Segue-se um caso de uso prático para cada uma delas:
+
+
+
+Exemplo:
+
+Deseja-se retirar todos os espaços em branco de uma string qualquer.
+Vamos elaborar uma função para retirar todos os espaços em branco de uma string qualquer com tamanho máximo de 1000 caracteres.
+Usaremos a função built-in (função interna do sql server) ltrim() que retira os espaços em branco do lado esquerdo e rtrim() que retira os espaços em branco da direita.
+
+Tipo de função: Scalar-valued user-defined function:
+
+(Imagem_1)
+
+Invocando uma Scalar-valued user-defined function:
+(Imagem_2)
+
+Resultado obtido:
+(Imagem_3)
+
+Considerações importantes: A função criada é de domínio do database ao qual ela foi criada,assim sendo,
+para invocá-la de outro database se faz necessário o uso da assinatura completa da função:
+
+(Imagem_4)
+
+
+
+
+Exercício:
+Link: https://www.w3resource.com/sql-exercises/sql-aggregate-function-exercise-1.php
+
+
+Na tabela a seguir, escreva uma consulta SQL para calcular o valor total da compra de todos os pedidos. Devolva o valor total da compra.
+
+SELECT SUM (ValorCompra) 
+FROM orders
+
+Explicação do código:
+
+A referida consulta em SQL recupera a soma dos valores na coluna "ValorCompra" da tabela 'Pedidos'.
+A instrução "SELECT SUM (ValorCompra)" especifica que a soma dos valores na coluna "ValorCompra" deve ser retornada.
+O resultado desta consulta será um único valor que representa a soma de todos os valores na coluna "ValorCompra" na tabela 'Pedidos'.
+
+O que são Funções Escalares?
+https://www.ibm.com/docs/en/db2/11.5?topic=functions-creating-sql-scalar
+
+Informações Referentes a criação de funções:
+
+
+* Fazer outro Exercício pra criar uma função
+
+
+Informações Referentes a criação de funções:
+https://learn.microsoft.com/en-us/sql/relational-databases/user-defined-functions/create-user-defined-functions-database-engine?view=sql-server-ver16
+
