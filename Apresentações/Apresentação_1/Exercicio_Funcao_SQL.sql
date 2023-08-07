@@ -1,6 +1,6 @@
-Create Database TesteApresentacao;
+Create Database ExercicioApresentacao;
 
-Use TesteApresentacao;
+Use ExercicioApresentacao;
 
 Create Table Clientes(
 IdCliente INT PRIMARY KEY IDENTITY,
@@ -18,14 +18,12 @@ DataCompra DATE NOT NULL,
 
 
 
--------DML------------
+--Na tabela a seguir, escreva uma consulta SQL para calcular o valor total da compra de todos os pedidos.
+--Devolva o valor total da compra.
+
 
 Select * from Clientes
 Select * from Pedidos
-
-Insert into Pedidos Values(2,490.092,'21/06/2022');
-
-Insert into Clientes Values('Felipe');
 
 
 
@@ -33,3 +31,17 @@ Insert into Clientes Values('Felipe');
 
 SELECT SUM (ValorCompra)
 FROM Pedidos
+
+
+
+
+
+
+
+
+
+
+
+Insert into Pedidos Values(2,490.092,'21/06/2022');
+
+Insert into Clientes Values('Felipe');

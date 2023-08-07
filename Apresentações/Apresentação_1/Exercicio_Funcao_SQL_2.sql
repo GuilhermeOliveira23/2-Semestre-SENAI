@@ -1,6 +1,14 @@
-Create DataBase TesteApresentacao_2
-Use TesteApresentacao_2
-drop table Clientes
+
+
+--Na tabela a seguir,crie uma função onde é possível visualizar o endereço de um cliente pelo seu id
+Select * from Clientes
+
+Create DataBase ExercicioApresentacao_2
+
+
+
+Use ExercicioApresentacao_2
+--drop table Clientes
 
 
 Create table Clientes
@@ -17,31 +25,38 @@ select * from Clientes
 
 Insert into Clientes(Nome) Values('Guilherme')
 
-Insert into Clientes Values('Arthur','Rua Aurora')
+Insert into Clientes Values('Arthur','Rua Lago Verde')
 
 
 ---- Função Escalar ----
 
-Create Function dbo.ufnPegarLocalCliente(@IdCliente INT)
-returns varchar(80)
+Create Function dbo.PegarLocalCliente(@IdCliente INT)
+returns varchar(80) -- tipo de retorno
 as
-Begin 
-Declare @Endereco varchar(80)
+Begin  -- Começo da lógica
+Declare @Endereco varchar(80) -- Declaração de Variável
 Select @Endereco = Endereco from Clientes
 Where IdCliente = @IdCliente
-Return @Endereco
-end
+Return @Endereco -- Retorno da função
+end -- Fim da lógica
+
+--Recebe parâmetros
 
 
 
-drop function dbo.ufnPegarLocalCliente
+drop function dbo.PegarLocalCliente
 
 
 
 ---Utilizando a função ---
 
-Select *, dbo.ufnPegarLocalCliente(IdCliente) from Clientes
+Select *, dbo.PegarLocalCliente(IdCliente) from Clientes
 
 
-Select dbo.ufnPegarLocalCliente(10)
+Select dbo.PegarLocalCliente(9)
+
+
+
+
+
 
