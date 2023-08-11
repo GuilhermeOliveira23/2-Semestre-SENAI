@@ -83,12 +83,12 @@ Exibe BIT DEFAULT(0)
 
 Insert into TiposDeEvento Values('SQL SERVER')
 
-Insert into Instituicao Values ('12313','DevSchools','Rua Niteroi, 180 São Caetano do Sul')
+Insert into Instituicao Values ('123134','DevSchools','Rua Niteroi, 180 São Caetano do Sul')
 
 Insert into Usuario Values('2','Felipe','felipe@gmail.com','12345')
 
-Insert into Evento Values(
-'1','1','Intensivão de SQL Server',
+Insert into Evento (IdEvento,IdTiposDeEvento,IdInstituicao,Nome,Descricao,DataEvento,HorarioEvento) Values(
+'1','1','1','Intensivão de SQL Server',
 'Aprenda os principais conceitos de SQL Server',
 '2003-09-11','15:30:00'
 )
@@ -96,6 +96,9 @@ Insert into Evento Values(
 Insert into PresencasEvento Values('2','2',0)
 
 Insert into Comentarios Values('2','2','Evento daora, aceitável','1')
+
+
+Insert into PresencasEvento (IdPresencaEvento, IdUsuario, IdEvento, Situacao)  Values('1','1','1','0')
 
 
 
@@ -116,9 +119,36 @@ Select * from  Comentarios
 
 
 
+--Selecionando as colunas com os dados a serem exibidos
+
+ Select NomeUsuario,TituloTipoDeUsuario,DataEvento,Endereco,TituloTipoDeEvento,
+ Nome,DescricaoComentario,Situacao from Usuario
+ left join TiposDeUsuario on Usuario.IdUsuario = TiposDeUsuario.IdTiposDeUsuario
+ left join Evento on Usuario.IdUsuario = Evento.IdEvento
+ left join PresencasEvento on Usuario.IdUsuario = PresencasEvento.IdEvento
+ left join TiposDeEvento on Usuario.IdUsuario = TiposDeEvento.IdTiposDeEvento
+ left join Instituicao on Usuario.IdUsuario = Instituicao.IdInstituicao
+ left join Comentarios on Usuario.IdUsuario = Comentarios.IdUsuario
 
 
---2023-08-10 
+
+
+ -- tabela do professor
+  --Concat (Instituicao.NomeFantasia, '-', Instituicao.Endereco) as Endereco, TiposDeEvento.TituloTipoEvento
+
+ Select NomeUsuario,TituloTipoDeUsuario,DataEvento,Endereco,TituloTipoDeEvento,
+ Nome,DescricaoComentario,Situacao from Evento
+ left join TiposDeUsuario on Evento.IdEvento = TiposDeUsuario.IdTiposDeUsuario
+ left join Usuario on Evento.IdEvento = Usuario.IdUsuario
+ left join PresencasEvento on Evento.IdEvento = PresencasEvento.IdEvento
+ left join TiposDeEvento on Evento.IdEvento= TiposDeEvento.IdTiposDeEvento
+ left join Instituicao on Evento.IdEvento = Instituicao.IdInstituicao
+ left join Comentarios on Evento.IdEvento = Comentarios.IdUsuario
+
+ Case When PresencasEvento.Situacao = 1 Then 'Confirmado' Else 'Não Confirmado' End
+
+ EXEC sp_rename 'Comentarios.Descricao', 'DescricaoComentario';
+
 
 
 
