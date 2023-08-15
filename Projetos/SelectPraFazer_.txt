@@ -1,0 +1,15 @@
+ criar script que exiba os seguintes dados 
+- Nome da Clinica
+- Nome do Paciente
+- Id Consulta 
+- Nome do Medico
+- Especialidade
+- CRM
+- Prontuário ou descrição
+- Feedback(Comentario da consulta)
+
+
+
+ Criar procedure para retornar os médicos de uma determinada especialidade
+
+*Criar procedure para retornar a idade de um determinado usuário específico

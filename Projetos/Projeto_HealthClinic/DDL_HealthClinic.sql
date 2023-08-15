@@ -1,6 +1,6 @@
 Create DataBase Projeto_HealthClinic_Tarde
 Use Projeto_HealthClinic_Tarde
-drop database Projeto_HealthClinic_Tarde
+
 
 
 
@@ -29,7 +29,7 @@ Create table Usuario
 (
 IdUsuario INT PRIMARY KEY IDENTITY ,
 IdTipoDeUsuario INT FOREIGN KEY REFERENCES TipoDeUsuario(IdTipoDeUsuario) NOT NULL,
-NomeUsuario VARCHAR(80) NOT NULL,
+Nome VARCHAR(80) NOT NULL,
 Email VARCHAR(80) NOT NULL UNIQUE, 
 Senha VARCHAR(80) NOT NULL
 
@@ -49,12 +49,11 @@ IdMedico INT PRIMARY KEY IDENTITY,
 IdUsuario INT FOREIGN KEY REFERENCES Usuario(IdUsuario) NOT NULL,
 IdEspecialidade INT FOREIGN KEY REFERENCES Especialidade(IdEspecialidade) NOT NULL,
 IdClinica INT FOREIGN KEY REFERENCES Clinica(IdClinica) NOT NULL,
-NomeMedico VARCHAR(80) NOT NULL,
 CRM VARCHAR(13) NOT NULL UNIQUE
 
 
 )
-drop table Medico
+
 
 Create Table Situacao 
 (
@@ -68,29 +67,34 @@ Create Table Paciente
 (
 IdPaciente INT PRIMARY KEY IDENTITY ,
 IdUsuario INT FOREIGN KEY REFERENCES Usuario(IdUsuario) NOT NULL,
-Situacao INT FOREIGN KEY REFERENCES  Situacao(IdSituacao) NOT NULL,
-NomePaciente VARCHAR(100) NOT NULL
+
 
 )
-drop table Paciente
-Create Table FeedBack 
-(
-IdFeedBack INT PRIMARY KEY IDENTITY ,
-IdPaciente INT FOREIGN KEY REFERENCES Paciente(IdPaciente) NOT NULL,
-Comentario VARCHAR(200) NOT NULL 
 
-)
 
 Create Table Consulta 
 (
 IdConsulta INT PRIMARY KEY IDENTITY , 
-IdPaciente INT FOREIGN KEY REFERENCES Paciente(IdPaciente),
-IdMedico INT FOREIGN KEY REFERENCES Medico(IdMedico),
-Descricao VARCHAR(100),
-DataAgendamento DATE,
-HorarioAgendamento TIME
+IdPaciente INT FOREIGN KEY REFERENCES Paciente(IdPaciente) NOT NULL,
+IdMedico INT FOREIGN KEY REFERENCES Medico(IdMedico) NOT NULL,
+IdSituacao INT FOREIGN KEY REFERENCES Situacao(IdSituacao) NOT NULL,
+Descricao VARCHAR(100) NOT NULL,
+DataAgendamento DATE NOT NULL,
+HorarioAgendamento TIME NOT NULL,
+
 
 
 
 
 )
+
+
+Create Table FeedBack 
+(
+IdFeedBack INT PRIMARY KEY IDENTITY ,
+IdConsulta INT FOREIGN KEY REFERENCES Consulta(IdConsulta) NOT NULL,
+Comentario VARCHAR(200) NOT NULL 
+
+)
+
+
