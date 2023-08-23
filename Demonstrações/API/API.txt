@@ -18,6 +18,7 @@ model -> classe(dado da classe) e Regras de negócio
 View -> visual
 Controller -> métodos controladores, acesso do front com o back
 
+
 Domains -> definição das classes -propriedades
 Controllers -> métodos controladores - autenticação e autorização
 Interfaces ->definição dos métodos obrigatórios

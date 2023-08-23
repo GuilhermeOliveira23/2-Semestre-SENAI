@@ -17,7 +17,7 @@ namespace webapi.filmes.tarde.Repositories
         /// </summary>
         /// 
 
-        private string StringConexao = "Data Source = NOTE21-S15; Initial Catalog = Filmes; User Id = sa; Pwd = Senai@134";
+        private string StringConexao = "Data Source = NOTE21-S15; Initial Catalog = Filmes_Tarde; User Id = sa; Pwd = Senai@134";
 
 
         public void AtualizarIdPor(GeneroDomain Genero)
@@ -101,6 +101,12 @@ namespace webapi.filmes.tarde.Repositories
 
             //retorna a lista de gêneros
             return listaGeneros;
+        }
+
+        
+                
+            
+
         }
 
     }
