@@ -1,10 +1,14 @@
-﻿using webapi.filmes.tarde.Domains;
+﻿using System.Data.SqlClient;
+using webapi.filmes.tarde.Domains;
 using webapi.filmes.tarde.Interfaces;
 
 namespace webapi.filmes.tarde.Repositories
 {
     public class FilmeRepository : IFilmeRepository
     {
+
+
+        private string StringConexao = "Data Source = NOTE21-S15; Initial Catalog = Filmes_Tarde; User Id = sa; Pwd = Senai@134";
         public void AtualizarIdPor(FilmeDomain Filme)
         {
             throw new NotImplementedException();
@@ -20,19 +24,33 @@ namespace webapi.filmes.tarde.Repositories
             throw new NotImplementedException();
         }
 
-        public void Cadastrar(FilmeDomain Filme)
+        public void Cadastrar(FilmeDomain novoFilme)
         {
-            throw new NotImplementedException();
-        }
 
-        public void Deletar(int Id)
-        {
             throw new NotImplementedException();
+
+        }
+        
+
+        public void Deletar(int id)
+        {
+            using (SqlConnection con = new SqlConnection(StringConexao))
+            {
+                string queryDelete = "DELETE FROM Filme  Where IdFilme = @IdFilme";
+                con.Open();
+
+                using (SqlCommand cmd = new SqlCommand(queryDelete, con))
+                {
+                    cmd.Parameters.AddWithValue("@IdFilme", id);
+                    cmd.ExecuteNonQuery();
+                }
+            }
         }
 
         public List<FilmeDomain> ListarTodos()
         {
             throw new NotImplementedException();
         }
-    }
+        
+       }
 }

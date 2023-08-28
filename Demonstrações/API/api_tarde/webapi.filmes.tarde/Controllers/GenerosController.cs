@@ -25,15 +25,15 @@ namespace webapi.filmes.tarde.Controllers
     /// Define que o tipo de resposta da API é JSON
     /// </summary>
 
-    
-    
+
+
     [Produces("application/json")]
     public class GenerosController : ControllerBase
     {
 
-       /// <summary>
-       /// Objeto que irá receber os métodos definidos na interface
-       /// </summary>
+        /// <summary>
+        /// Objeto que irá receber os métodos definidos na interface
+        /// </summary>
         private IGeneroRepository _generoRepository { get; set; }
 
 
@@ -53,14 +53,14 @@ namespace webapi.filmes.tarde.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-           
+
 
             try
             {
-            //Cria uma lista para receber os generos
-            List<GeneroDomain> listaGenero =  _generoRepository.ListarTodos();
-            // retorna a lista no formato de JSON e o status code(Ok = 200)
-            return Ok(listaGenero);
+                //Cria uma lista para receber os generos
+                List<GeneroDomain> listaGenero = _generoRepository.ListarTodos();
+                // retorna a lista no formato de JSON e o status code(Ok = 200)
+                return Ok(listaGenero);
             }
 
             catch (Exception erro)
@@ -73,19 +73,68 @@ namespace webapi.filmes.tarde.Controllers
 
         }
 
-        *// public GeneroDomain BuscarPorId(int id)
+        [HttpPost]
+        public IActionResult Post(GeneroDomain  novoGenero)
         {
-            public GeneroDomain BuscarPorId(int id)
+            try
             {
+                //Faz a chamada para o método cadastrar
+                _generoRepository.Cadastrar(novoGenero);
 
-                using (SqlConnection con = new SqlConnection(StringConexao)
-            {
-                GeneroDomain GeneroBuscado = IdGenero.Find(x => x.Contains(id));
-
-
-                return GeneroBuscado;
+                //retorna um status code
+                return Created("objeto criado", novoGenero);
+                //return StatusCode(201)
             }
-        //*
+            catch (Exception erro)
+            {
+
+                //Retorna um status code BadRequest (400) e a mensagem de erro
+                return BadRequest(erro.Message);
+                throw;
+            }
+
+
         }
+
+
+
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            try
+            {
+                _generoRepository.Deletar(id);
+                return StatusCode(204);
+            }
+            catch (Exception erro)
+            {
+                return BadRequest(erro.Message);
+            }
+        }
+
+
+        [HttpGet("{id}")]
+        public IActionResult GetById(int id)
+        {
+
+            try
+            {   
+
+                GeneroDomain generoBuscado = _generoRepository.BuscarPorId(id);
+                if (generoBuscado == null)
+                {
+                    return NotFound();
+                }
+                
+                return Ok(generoBuscado);
+            }
+            catch (Exception erro)
+            {
+
+                return BadRequest(erro.Message);
+            }
+        }
+
+
     }
 }
