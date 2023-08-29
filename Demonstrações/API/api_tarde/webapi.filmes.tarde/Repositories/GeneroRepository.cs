@@ -20,28 +20,49 @@ namespace webapi.filmes.tarde.Repositories
 
         private string StringConexao = "Data Source = NOTE21-S15; Initial Catalog = Filmes_Tarde; User Id = sa; Pwd = Senai@134";
 
-
-        public void AtualizarIdPor(GeneroDomain Genero)
+        /// <summary>
+        /// Atualizar um gênero passando seu id pelo corpo da requisição
+        /// </summary>
+        /// <param name="Genero">Objeto com as novas informações</param>
+        public void AtualizarIdPor(GeneroDomain genero)
         {
             using (SqlConnection con = new SqlConnection(StringConexao))
             {
-                String queryInsertById = "Insert Into Genero(Nome) Values('Genero')";
+                String queryUpdateIdBody = "Update Genero Set Nome = @Nome Where IdGenero = @IdGenero";
 
 
                 con.Open();
 
 
-                using (SqlCommand cmd = new SqlCommand())
+                using (SqlCommand cmd = new SqlCommand(queryUpdateIdBody, con))
                 {
 
+
+                    cmd.Parameters.AddWithValue("@Nome",genero.Nome);
+                    cmd.Parameters.AddWithValue("@IdGenero", genero.IdGenero);
+
+                    cmd.ExecuteNonQuery();
                 }
             }
 
         }
 
-        public void AtualizarIdUrl(int Id, GeneroDomain Genero)
+        public void AtualizarIdUrl(int id, GeneroDomain genero)
         {
-            throw new NotImplementedException();
+            using (SqlConnection con = new SqlConnection(StringConexao))
+            {
+                string queryUpdateUrl = "Update Genero Set Nome = @Nome Where IdGenero = @IdGenero";
+                con.Open();
+
+                using (SqlCommand cmd = new SqlCommand(queryUpdateUrl, con))
+                {
+                    cmd.Parameters.AddWithValue("@Nome", genero.Nome);
+                    cmd.Parameters.AddWithValue("@IdGenero", id);
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+           
         }
         /// <summary>
         /// Buscar um gênero através do seu id
@@ -57,8 +78,7 @@ namespace webapi.filmes.tarde.Repositories
 
                 SqlDataReader rdr;
 
-                
-                
+               
                 using (SqlCommand cmd = new SqlCommand(querySelectById, con))
                 {
                     cmd.Parameters.AddWithValue("@IdGenero", id);
@@ -67,7 +87,7 @@ namespace webapi.filmes.tarde.Repositories
 
                     rdr = cmd.ExecuteReader();
                     
-                 
+                    
                     if (rdr.Read())
                     {
                         GeneroDomain generoBuscado = new GeneroDomain()
@@ -118,7 +138,6 @@ namespace webapi.filmes.tarde.Repositories
             }
                 
         
-
 
             }
             
@@ -198,7 +217,6 @@ namespace webapi.filmes.tarde.Repositories
                 }
             }
         }
-
 
     }
 }

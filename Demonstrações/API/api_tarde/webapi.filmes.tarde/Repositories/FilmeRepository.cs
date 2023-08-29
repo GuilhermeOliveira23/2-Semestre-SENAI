@@ -27,7 +27,22 @@ namespace webapi.filmes.tarde.Repositories
         public void Cadastrar(FilmeDomain novoFilme)
         {
 
-            throw new NotImplementedException();
+            using (SqlConnection con = new SqlConnection(StringConexao))
+            {
+                string queryInsert = "INSERT INTO Filme(Nome) Values ('" + novoFilme.IdGenero + "', '" + novoFilme.Titulo +  "')";
+
+
+
+                using (SqlCommand cmd = new SqlCommand(queryInsert, con))
+                {
+
+                    con.Open();
+
+                    cmd.ExecuteNonQuery();
+                }
+
+
+            }
 
         }
         
@@ -36,7 +51,7 @@ namespace webapi.filmes.tarde.Repositories
         {
             using (SqlConnection con = new SqlConnection(StringConexao))
             {
-                string queryDelete = "DELETE FROM Filme  Where IdFilme = @IdFilme";
+                string queryDelete = "DELETE FROM Filme Where IdFilme = @IdFilme";
                 con.Open();
 
                 using (SqlCommand cmd = new SqlCommand(queryDelete, con))
