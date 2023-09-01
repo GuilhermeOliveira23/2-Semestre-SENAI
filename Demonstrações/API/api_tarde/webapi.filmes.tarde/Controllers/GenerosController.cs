@@ -107,6 +107,7 @@ namespace webapi.filmes.tarde.Controllers
                 _generoRepository.Deletar(id);
                 return StatusCode(204);
             }
+
             catch (Exception erro)
             {
                 return BadRequest(erro.Message);
@@ -194,7 +195,6 @@ namespace webapi.filmes.tarde.Controllers
                 return BadRequest(erro.Message);
                 
             }
-
 
         }
     }
