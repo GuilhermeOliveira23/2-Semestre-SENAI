@@ -11,7 +11,27 @@ namespace webapi.filmes.tarde.Repositories
         private string StringConexao = "Data Source = NOTE21-S15; Initial Catalog = Filmes_Tarde; User Id = sa; Pwd = Senai@134";
         public void AtualizarIdPor(FilmeDomain Filme)
         {
-            throw new NotImplementedException();
+            // Declara a SqlConnection con passando a string de conexão como parâmetro
+            using (SqlConnection con = new SqlConnection(StringConexao))
+            {
+                // Declara a query a ser executada
+                string queryUpdateBody = "UPDATE Filme SET Filme.IdGenero = @IdGenero, Filme.Titulo = @Titulo WHERE IdFilme = @IFilme";
+
+                // Declara o SqlCommand passando o comando a ser executado e a conexão
+                using (SqlCommand cmd = new SqlCommand(queryUpdateBody, con))
+                {
+                    // Passa os valores dos parâmetros
+                    cmd.Parameters.AddWithValue("@IFilme", filme.IdFilme);
+                    cmd.Parameters.AddWithValue("@IdGenero", filme.IdGenero);
+                    cmd.Parameters.AddWithValue("@Titulo", filme.Titulo);
+
+                    // Abre a conexão com o banco de dados
+                    con.Open();
+
+                    // Executa o comando
+                    cmd.ExecuteNonQuery();
+                }
+            }
         }
 
         public void AtualizarIdUrl(int id, FilmeDomain filme)

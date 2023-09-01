@@ -110,6 +110,54 @@ namespace webapi.filmes.tarde.Controllers
             
 
         }
+         public IActionResult PutIdUrl(int id)
+        {
+
+            try
+            {
+                // Cria um objeto generoBuscado que irá receber o gênero buscado no banco de dados
+                FilmeDomain filmeBuscado = _filmeRepository.BuscarPorId(id);
+
+                // Caso não seja encontrado, retorna NotFound com uma mensagem personalizada
+                // e um bool para apresentar que houve erro
+                if (filmeBuscado == null)
+                {
+                    return NotFound
+                        (new
+                        {
+                            mensagem = "Filme não encontrado!",
+                            erro = true
+                        }
+                        );
+                }
+
+                // Tenta atualizar o registro
+                try
+                {
+                    // Faz a chamada para o método .AtualizarIdUrl()
+                    _filmeRepository.AtualizarIdUrl(id, filmeBuscado);
+
+                    // Retorna um status code 204 - No Content
+                    return NoContent();
+                }
+                // Caso ocorra algum erro
+                catch (Exception erro)
+                {
+                    // Retorna um status 400 - BadRequest e o código do erro
+                    return BadRequest(erro);
+                }
+            }
+            catch (Exception erro)
+            {
+
+                // Retorna um status 400 - BadRequest e o código do erro
+                return BadRequest(erro);
+            }
+
+
+
+
+        }
 
 
 
