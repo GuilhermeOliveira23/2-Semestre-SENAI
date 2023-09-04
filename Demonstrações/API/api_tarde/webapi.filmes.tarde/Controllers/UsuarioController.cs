@@ -4,40 +4,36 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Security.Cryptography;
 using webapi.filmes.tarde.Domains;
+using webapi.filmes.tarde.Interfaces;
+using webapi.filmes.tarde.Repositories;
 
 namespace webapi.filmes.tarde.Controllers
 {
+    [Route("api/[controller]")]
+    [ApiController]
+    [Produces("application/json")]
     public class UsuarioController :ControllerBase
     {
+        private IUsuarioRepository _usuarioRepository;
 
-        [Route("api/[controller]")]
-
-        /// <summary>
-        /// Define que é um controlador de API
-        /// </summary>
-        [ApiController]
-
-        /// <summary>
-        /// Define que o tipo de resposta da API é JSON
-        /// </summary>
-
-
-
-        [Produces("application/json")]
-
-
-
-        public IActionResult Login()
+        public UsuarioController()
         {
-            try
-            {
-               
-            }
-            catch (Exception erro)
-            {
+            _usuarioRepository = new UsuarioRepository();
+        }
 
-                return NotFound(erro.Message);
+        [HttpPost]
+        public IActionResult Login(UsuarioDomain usuario)
+        {
+            UsuarioDomain usuarioBuscado = _usuarioRepository.Login(usuario.Email, usuario.Senha);
+
+            if (usuarioBuscado == null)
+            {
+                return NotFound("Email ou Senha Inválidos !");
             }
+
+
+
+            
             // 1° definir as informações(Claims) que serão fornecidos no token (PayLoad)
             var claims = new[]
             {
@@ -52,7 +48,7 @@ namespace webapi.filmes.tarde.Controllers
             var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("filmes-chave-autenticacao-webapi-dev"));
 
             //3° Definir as credencias do token (Header)
-            var creds =  new SigningCredentials(key,SecurityAlgorithms.HmacSha256)
+            var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
 
                 //4° - Gerar o token

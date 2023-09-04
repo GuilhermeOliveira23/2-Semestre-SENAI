@@ -52,6 +52,7 @@ namespace webapi.filmes.tarde.Controllers
 
 
         }
+
         [HttpGet]
         public IActionResult Get()
         {
@@ -110,6 +111,8 @@ namespace webapi.filmes.tarde.Controllers
             
 
         }
+
+        [HttpPut]
          public IActionResult PutIdUrl(int id)
         {
 

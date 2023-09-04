@@ -9,7 +9,7 @@ namespace webapi.filmes.tarde.Repositories
 
 
         private string StringConexao = "Data Source = NOTE21-S15; Initial Catalog = Filmes_Tarde; User Id = sa; Pwd = Senai@134";
-        public void AtualizarIdPor(FilmeDomain Filme)
+        public void AtualizarIdPor(FilmeDomain filme)
         {
             // Declara a SqlConnection con passando a string de conexão como parâmetro
             using (SqlConnection con = new SqlConnection(StringConexao))

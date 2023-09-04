@@ -64,3 +64,11 @@ C:\Users\54823324897\Desktop\2-Semestre-SENAI\Demonstrações\API\api_tarde\weba
 C:\Users\54823324897\Desktop\2-Semestre-SENAI\Demonstrações\API\api_tarde\webapi.filmes.tarde\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerUI.dll
 C:\Users\54823324897\Desktop\2-Semestre-SENAI\Demonstrações\API\api_tarde\webapi.filmes.tarde\bin\Debug\net7.0\webapi.filmes.tarde.xml
 C:\Users\54823324897\Desktop\2-Semestre-SENAI\Demonstrações\API\api_tarde\webapi.filmes.tarde\obj\Debug\net7.0\webapi.filmes.tarde.xml
+C:\Users\54823324897\Desktop\2-Semestre-SENAI\Demonstrações\API\api_tarde\webapi.filmes.tarde\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\54823324897\Desktop\2-Semestre-SENAI\Demonstrações\API\api_tarde\webapi.filmes.tarde\bin\Debug\net7.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\54823324897\Desktop\2-Semestre-SENAI\Demonstrações\API\api_tarde\webapi.filmes.tarde\bin\Debug\net7.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\54823324897\Desktop\2-Semestre-SENAI\Demonstrações\API\api_tarde\webapi.filmes.tarde\bin\Debug\net7.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\54823324897\Desktop\2-Semestre-SENAI\Demonstrações\API\api_tarde\webapi.filmes.tarde\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\54823324897\Desktop\2-Semestre-SENAI\Demonstrações\API\api_tarde\webapi.filmes.tarde\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\54823324897\Desktop\2-Semestre-SENAI\Demonstrações\API\api_tarde\webapi.filmes.tarde\bin\Debug\net7.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\54823324897\Desktop\2-Semestre-SENAI\Demonstrações\API\api_tarde\webapi.filmes.tarde\bin\Debug\net7.0\System.IdentityModel.Tokens.Jwt.dll
