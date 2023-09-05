@@ -53,7 +53,7 @@ namespace webapi.filmes.tarde.Controllers
         /// <returns>Lista de gêneros e um status code</returns>
 
         [HttpGet]
-        [Authorize]
+        [Authorize(Roles = "Administrador")]
         public IActionResult Get()
         {
 
