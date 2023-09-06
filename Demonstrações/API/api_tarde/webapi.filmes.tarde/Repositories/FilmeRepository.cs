@@ -97,7 +97,7 @@ namespace webapi.filmes.tarde.Repositories
 
             using (SqlConnection con = new SqlConnection(StringConexao))
             {
-                string queryInsert = "INSERT INTO Filme(IdGenero,Titulo) Values ('" + novoFilme.IdGenero + "', '" + novoFilme.Titulo +  "')";
+                string queryInsert = "INSERT INTO Filme(IdGenero,Titulo) Values ('" + novoFilme.IdGenero + "', '" + novoFilme.Titulo + "')";
 
 
 
