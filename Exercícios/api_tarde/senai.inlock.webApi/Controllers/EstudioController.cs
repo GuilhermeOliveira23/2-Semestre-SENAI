@@ -16,9 +16,6 @@ namespace senai.inlock.webApi.Controllers
     {
         private IEstudioRepository  _estudioRepository;
 
-            public EstudioController()
-            {
-            _estudioRepository = new EstudioRepository();
-            }
+            
     }
 }

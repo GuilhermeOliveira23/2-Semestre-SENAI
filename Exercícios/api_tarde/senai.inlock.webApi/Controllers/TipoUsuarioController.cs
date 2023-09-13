@@ -16,13 +16,32 @@ namespace senai.inlock.webApi.Controllers
 
         private ITipoUsuarioRepository _tipoUsuarioRepository;
 
-        public TipoUsuarioController()
+        
+
+
+        [HttpPost]
+        public IActionResult Post(TipoUsuarioDomain novoUsuario)
         {
-            _tipoUsuarioRepository = new TipoUsuarioRepository();
+            try
+            {
+                //Faz a chamada para o método cadastrar
+                _tipoUsuarioRepository.Cadastrar(novoUsuario);
+
+                //retorna um status code
+                return Created("objeto criado", novoUsuario);
+                //return StatusCode(201)
+            }
+            catch (Exception erro)
+            {
+
+                //Retorna um status code BadRequest (400) e a mensagem de erro
+                return BadRequest(erro.Message);
+                throw;
+            }
+
 
         }
 
-        
 
     }
 }

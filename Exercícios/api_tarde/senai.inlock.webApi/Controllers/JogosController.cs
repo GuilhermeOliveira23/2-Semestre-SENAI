@@ -1,7 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using senai.inlock.webApi.Domains;
 using senai.inlock.webApi.Interfaces;
 using senai.inlock.webApi.Repositories;
+using System.Data;
 
 namespace senai.inlock.webApi.Controllers
 {
@@ -26,6 +28,7 @@ namespace senai.inlock.webApi.Controllers
 
 
         [HttpPost]
+        
         public IActionResult Post(JogosDomain novoJogo)
         {
             try
@@ -49,6 +52,7 @@ namespace senai.inlock.webApi.Controllers
         }
 
         [HttpGet]
+
         public IActionResult Get()
         {
 
@@ -67,7 +71,6 @@ namespace senai.inlock.webApi.Controllers
                 return BadRequest(erro.Message);
                 throw;
             }
-
 
         }
     }
