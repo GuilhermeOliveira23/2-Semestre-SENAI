@@ -20,5 +20,12 @@ namespace webapi.inlock.CodeFirst.Domains
         [Required(ErrorMessage = "Senha obrigatória")]
         [StringLength(20,MinimumLength =6, ErrorMessage = "Senha deve conter de 6 a 20 caracteres!")]
         public string? Senha { get; set; }
+
+        //ref.tabela TiposUsuario
+        [Required(ErrorMessage = "Tipo do usuário obrigatório!")]
+        public Guid IdTipoUsuario { get; set; }
+
+        [ForeignKey("IdTipoUsuario")]
+        public TiposUsuario? TipoUsuario { get; set; }
     }
 }
