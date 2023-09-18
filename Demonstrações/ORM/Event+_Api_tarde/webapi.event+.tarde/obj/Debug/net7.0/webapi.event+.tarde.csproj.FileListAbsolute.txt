@@ -1,0 +1,7 @@
+C:\Users\54823324897\Desktop\2-Semestre-SENAI\Demonstrações\ORM\Event+_Api_tarde\webapi.event+.tarde\obj\Debug\net7.0\webapi.event+.tarde.csproj.AssemblyReference.cache
+C:\Users\54823324897\Desktop\2-Semestre-SENAI\Demonstrações\ORM\Event+_Api_tarde\webapi.event+.tarde\obj\Debug\net7.0\webapi.event+.tarde.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\54823324897\Desktop\2-Semestre-SENAI\Demonstrações\ORM\Event+_Api_tarde\webapi.event+.tarde\obj\Debug\net7.0\webapi.event+.tarde.AssemblyInfoInputs.cache
+C:\Users\54823324897\Desktop\2-Semestre-SENAI\Demonstrações\ORM\Event+_Api_tarde\webapi.event+.tarde\obj\Debug\net7.0\webapi.event+.tarde.AssemblyInfo.cs
+C:\Users\54823324897\Desktop\2-Semestre-SENAI\Demonstrações\ORM\Event+_Api_tarde\webapi.event+.tarde\obj\Debug\net7.0\webapi.event+.tarde.csproj.CoreCompileInputs.cache
+C:\Users\54823324897\Desktop\2-Semestre-SENAI\Demonstrações\ORM\Event+_Api_tarde\webapi.event+.tarde\obj\Debug\net7.0\webapi.event+.tarde.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\54823324897\Desktop\2-Semestre-SENAI\Demonstrações\ORM\Event+_Api_tarde\webapi.event+.tarde\obj\Debug\net7.0\webapi.event+.tarde.MvcApplicationPartsAssemblyInfo.cache
