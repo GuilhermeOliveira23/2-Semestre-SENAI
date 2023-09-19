@@ -17,6 +17,8 @@ namespace webapi.event_.tarde.Domains
         [Column(TypeName = "BIT")]
         [Required(ErrorMessage = "Informação sobre exibição obrigatória!")]
         public bool Exibe { get; set; }
+
+
         //ref.tabela Usuario
         [Required(ErrorMessage = "Usuário obrigatório!")]
         public Guid IdUsuario { get; set; }

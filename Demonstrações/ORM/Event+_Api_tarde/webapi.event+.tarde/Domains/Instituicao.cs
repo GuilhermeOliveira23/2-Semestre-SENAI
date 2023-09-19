@@ -27,10 +27,11 @@ namespace webapi.event_.tarde.Domains
 
         public string? Endereco { get; set; }
 
-        [Column(TypeName = "VARCHAR(100)")]
-        [Required(ErrorMessage = "A razão social da instituição é obrigatória!")]
+       
 
-        
+
+
+
 
 
 
@@ -41,6 +42,4 @@ namespace webapi.event_.tarde.Domains
 
 
     }
-
-
 }
