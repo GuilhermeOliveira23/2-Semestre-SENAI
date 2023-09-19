@@ -57,21 +57,7 @@ namespace webapi.inlock.CodeFirst.Repositories
 
 
 
-        public Usuario Login()
-        {
-            try
-            {
-
-            }
-            catch (Exception e)
-            {
-
-                throw;
-            }
-            
-
-
-        } 
+      
 
         
     }

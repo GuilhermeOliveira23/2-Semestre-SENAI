@@ -14,7 +14,13 @@ namespace webapi.inlock.CodeFirst.Controllers
     {
         private  IUsuarioRepository _usuarioRepository;
 
-       
+        public LoginController()
+        {
+
+            _usuarioRepository = new UsuarioRepository();
+        }
+
+
 
         [HttpPost]
         public IActionResult Login(LoginViewModel usuario)
@@ -25,9 +31,9 @@ namespace webapi.inlock.CodeFirst.Controllers
                 Usuario usuarioBuscado = _usuarioRepository.BuscarUsuario(usuario.Email!, usuario.Senha!);
                 return StatusCode(401, "Email ou senha inválidos!");
             }
-            catch (Exception)
+            catch (Exception e)
             {
-
+                return BadRequest(e.Message);
                 throw;
             }
 
