@@ -15,7 +15,7 @@ namespace webapi.event_.tarde.Domains
 
         [Column(TypeName = "VARCHAR(100)")]
         [Required(ErrorMessage = "O nome do evento é obrigatório!")]
-        public string? NomeEvento { get; set; }
+        public string? Nome { get; set; }
 
         [Column(TypeName = "TEXT")]
         [Required(ErrorMessage = "A descrição do evento é obrigatória!")]

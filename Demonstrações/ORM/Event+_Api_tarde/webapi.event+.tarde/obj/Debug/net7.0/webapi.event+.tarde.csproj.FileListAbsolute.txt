@@ -80,3 +80,5 @@ C:\Users\54823324897\Desktop\2-Semestre-SENAI\Demonstrações\ORM\Event+_Api_tar
 C:\Users\54823324897\Desktop\2-Semestre-SENAI\Demonstrações\ORM\Event+_Api_tarde\webapi.event+.tarde\obj\Debug\net7.0\webapi.event+.tarde.pdb
 C:\Users\54823324897\Desktop\2-Semestre-SENAI\Demonstrações\ORM\Event+_Api_tarde\webapi.event+.tarde\obj\Debug\net7.0\webapi.event+.tarde.genruntimeconfig.cache
 C:\Users\54823324897\Desktop\2-Semestre-SENAI\Demonstrações\ORM\Event+_Api_tarde\webapi.event+.tarde\obj\Debug\net7.0\ref\webapi.event+.tarde.dll
+C:\Users\54823324897\Desktop\2-Semestre-SENAI\Demonstrações\ORM\Event+_Api_tarde\webapi.event+.tarde\bin\Debug\net7.0\webapi.event+.tarde.xml
+C:\Users\54823324897\Desktop\2-Semestre-SENAI\Demonstrações\ORM\Event+_Api_tarde\webapi.event+.tarde\obj\Debug\net7.0\webapi.event+.tarde.xml
