@@ -16,6 +16,18 @@
         <member name="M:webapi.event_.tarde.Migrations.BD.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
         </member>
+        <member name="T:webapi.event_.tarde.Migrations.BD_2">
+            <inheritdoc />
+        </member>
+        <member name="M:webapi.event_.tarde.Migrations.BD_2.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:webapi.event_.tarde.Migrations.BD_2.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:webapi.event_.tarde.Migrations.BD_2.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
         <member name="M:webapi.event_.tarde.Utils.Criptografia.GerarHash(System.String)">
             <summary>
             Gera uma Hash a partir de uma senha

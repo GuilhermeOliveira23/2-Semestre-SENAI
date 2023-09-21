@@ -9,5 +9,10 @@ namespace webapi.event_.tarde.Interfaces
         Usuario BuscarPorId(Guid id);
 
         Usuario BuscarPorEmailSenha(string email, string senha);
+
+        
+
+
+
     }
 }

@@ -9,35 +9,31 @@ namespace webapi.event_.tarde.Controllers
     [Route("api/[controller]")]
     [ApiController]
     [Produces("application/json")]
-    public class EventoController : ControllerBase
+    public class PresencaEventoController : ControllerBase
     {
-        private IEventoRepository _eventoRepository;
-
-        public EventoController()
+        private IPresencaEvento _presencaEventoRepository { get; set; }
+        public PresencaEventoController()
         {
 
-            _eventoRepository = new EventoRepository();
+            _presencaEventoRepository = new PresencaEventoRepository();
         }
 
-
         [HttpPost]
-        public IActionResult Post(Evento evento)
+        public IActionResult Post(PresencaEvento presencaEvento)
         {
+
             try
             {
-                _eventoRepository.Cadastrar(evento);
+                _presencaEventoRepository.Cadastrar(presencaEvento);
                 return StatusCode(201);
             }
-            catch (Exception e )
+            catch (Exception e)
             {
                 return BadRequest(e.Message);
                 throw;
             }
-            
-
 
         }
-
 
         [HttpDelete("{id}")]
         public IActionResult Delete(Guid id)
@@ -46,7 +42,7 @@ namespace webapi.event_.tarde.Controllers
 
             try
             {
-                _eventoRepository.Deletar(id);
+                _presencaEventoRepository.Deletar(id);
 
                 return NoContent();
             }
@@ -64,7 +60,7 @@ namespace webapi.event_.tarde.Controllers
         {
             try
             {
-                return Ok(_eventoRepository.Listar());
+                return Ok(_presencaEventoRepository.Listar());
             }
             catch (Exception e)
             {
@@ -82,7 +78,7 @@ namespace webapi.event_.tarde.Controllers
             {
 
 
-                return Ok(_eventoRepository.BuscarPorId(id));
+                return Ok(_presencaEventoRepository.BuscarPorId(id));
             }
             catch (Exception e)
             {
@@ -94,11 +90,11 @@ namespace webapi.event_.tarde.Controllers
 
         }
         [HttpPut("{id}")]
-        public IActionResult Put(Guid id, Evento evento)
+        public IActionResult Put(Guid id, PresencaEvento presencaEvento)
         {
             try
             {
-                _eventoRepository.Atualizar(id, evento);
+                _presencaEventoRepository.Atualizar(id, presencaEvento);
                 return NoContent();
             }
             catch (Exception e)
@@ -107,13 +103,6 @@ namespace webapi.event_.tarde.Controllers
                 throw;
             }
 
-
-
-
-
         }
-
-
-
     }
 }

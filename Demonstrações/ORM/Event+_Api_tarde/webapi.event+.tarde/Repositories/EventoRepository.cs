@@ -17,12 +17,19 @@ namespace webapi.event_.tarde.Repositories
 
         public void Atualizar(Guid id, Evento atualizarEvento)
         {
-            Evento eventoBuscado = ctx.Evento.Find(id);
+            Evento eventoBuscado = ctx.Evento.Find(id)!;
             if (eventoBuscado != null)
             {
                 eventoBuscado.Nome = atualizarEvento.Nome;
+                eventoBuscado.Descricao = atualizarEvento.Descricao;
+                eventoBuscado.DataEvento = atualizarEvento.DataEvento;
+                eventoBuscado.IdTipoEvento = atualizarEvento.IdTipoEvento;
+                eventoBuscado.IdInstituicao = atualizarEvento.IdInstituicao;
+
                 ctx.SaveChanges();
             }
+
+
         }
 
         public Evento BuscarPorId(Guid id)
@@ -41,23 +48,22 @@ namespace webapi.event_.tarde.Repositories
             catch (Exception)
             {
 
-               
+                throw;
             }
         }
 
         public void Deletar(Guid id)
         {
-            Evento eventoBuscado = ctx.Evento.Find(id);
+            Evento eventoBuscado = ctx.Evento.Find(id)!;
             if (eventoBuscado != null)
             {
                 ctx.Evento.Remove(eventoBuscado);
             }
-            ctx.Evento.Update(eventoBuscado);
             ctx.SaveChanges();
 
         }
 
-        public List<Evento> ListarTodos()
+        public List<Evento> Listar()
         {
             return ctx.Evento.ToList();
         }

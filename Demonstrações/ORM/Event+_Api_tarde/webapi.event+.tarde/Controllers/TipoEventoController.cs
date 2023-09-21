@@ -39,6 +39,7 @@ namespace webapi.event_.tarde.Controllers
         public IActionResult Delete(Guid id)
         {
 
+       
             try
             {
                 _tipoEventoRepository.Deletar(id);
@@ -59,9 +60,7 @@ namespace webapi.event_.tarde.Controllers
         {
             try
             {
-                List<TipoEvento> lista = _tipoEventoRepository.ListarTodos();
-
-                return Ok();
+                return Ok(_tipoEventoRepository.Listar());
             }
             catch (Exception e)
             {
@@ -103,10 +102,6 @@ namespace webapi.event_.tarde.Controllers
                 return BadRequest(e.Message);
                 throw;
             }
-
-
-
-
 
         }
 

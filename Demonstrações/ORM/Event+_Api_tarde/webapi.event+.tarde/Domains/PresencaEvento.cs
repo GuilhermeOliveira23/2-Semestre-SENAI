@@ -30,7 +30,6 @@ namespace webapi.event_.tarde.Domains
         public Evento? Evento { get; set; }
 
 
-        
 
     }
 }

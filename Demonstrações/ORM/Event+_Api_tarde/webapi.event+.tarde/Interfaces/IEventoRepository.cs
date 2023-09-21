@@ -10,7 +10,7 @@ namespace webapi.event_.tarde.Interfaces
         void Deletar(Guid id);
 
         void Atualizar(Guid id, Evento atualizarEvento);
-        List<Evento> ListarTodos();
+        List<Evento> Listar();
 
     }
 }
