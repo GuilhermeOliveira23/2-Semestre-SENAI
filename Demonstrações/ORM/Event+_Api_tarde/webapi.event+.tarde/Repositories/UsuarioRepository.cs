@@ -9,17 +9,32 @@ namespace webapi.event_.tarde.Repositories
     public class UsuarioRepository : IUsuarioRepository
     {
 
-        private readonly EventContext _eventContext;
+        private readonly EventContext ctx;
         public UsuarioRepository()
         {
-            _eventContext = new EventContext();
+            ctx = new EventContext();
+        }
+
+        public void Atualizar(Guid id, Usuario usuario)
+        {
+            Usuario usuarioBuscado = ctx.Usuario.Find(id)!;
+            if (usuarioBuscado != null)
+            {
+                usuarioBuscado.Nome= usuario.Nome;
+                usuarioBuscado.Email= usuario.Email;
+                usuarioBuscado.Senha = usuario.Senha;
+                usuarioBuscado.IdTipoUsuario = usuario.IdTipoUsuario;
+                
+
+            }
+            ctx.SaveChanges();
         }
 
         public Usuario BuscarPorEmailSenha(string email, string senha)
         {
             try
             {
-            Usuario usuarioBuscado = _eventContext.Usuario
+            Usuario usuarioBuscado = ctx.Usuario
 
                     .Select(u => new Usuario
                     {
@@ -60,7 +75,7 @@ namespace webapi.event_.tarde.Repositories
         {
             try
             {
-                Usuario usuarioBuscado = _eventContext.Usuario
+                Usuario usuarioBuscado = ctx.Usuario
                     .Select(u => new Usuario
                     {
 
@@ -89,14 +104,29 @@ namespace webapi.event_.tarde.Repositories
             try
             {
                 usuario.Senha = Criptografia.GerarHash(usuario.Senha);
-                _eventContext.Usuario.Add(usuario);
-                _eventContext.SaveChanges();
+                ctx.Usuario.Add(usuario);
+                ctx.SaveChanges();
             }
             catch (Exception)
             {
 
                 throw;
             }
+        }
+
+        public void Deletar(Guid id)
+        {
+            Usuario usuarioBuscado = ctx.Usuario.Find(id);
+            if (usuarioBuscado != null)
+            {
+                ctx.Usuario.Remove(usuarioBuscado);
+                ctx.SaveChanges();
+            }
+        }
+
+        public List<Usuario> Listar()
+        {
+          return  ctx.Usuario.ToList();
         }
     }
 }
