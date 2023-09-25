@@ -27,11 +27,14 @@ namespace webapi.healthclinic.tarde.Domains
         [Required(ErrorMessage = "Endereco da Clínica é obrigatório!")]
         public string? Endereco { get; set; }
 
-
-        [Column(TypeName = "VARCHAR(100)")]
-        [Required(ErrorMessage = "Endereco da Clínica é obrigatório!")]
+        [NotMapped]
+        [Column(TypeName = "TIME")]
+        [Required(ErrorMessage = "Hora de abertura da clínica é obrigatória!")]
         public TimeOnly HoraAbertura { get; set; }
-        
+
+        [NotMapped]
+        [Column(TypeName = "TIME")]
+        [Required(ErrorMessage = "Hora de fechamento da clínica é obrigatório!")]
         public TimeOnly HoraFechamento { get; set; }
 
 

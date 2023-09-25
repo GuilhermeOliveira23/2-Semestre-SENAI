@@ -7,7 +7,7 @@ namespace webapi.healthclinic.tarde.Domains
     [Table(nameof(Paciente))]
     public class Paciente
     {
-
+        [Key]
         public Guid IdPaciente { get; set; } = Guid.NewGuid();
 
         [Column(TypeName = "VARCHAR(100)")]
