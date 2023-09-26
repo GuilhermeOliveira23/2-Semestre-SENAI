@@ -31,7 +31,13 @@ namespace webapi.healthclinic.tarde.Repositories
 
         public void Deletar(Guid id)
         {
-            throw new NotImplementedException();
+            Clinica clinica = ctx.Clinica.Find(id)!;
+            if (clinica != null)
+            {
+                ctx.Clinica.Remove(clinica);
+                ctx.SaveChanges();
+            }
+
         }
     }
 }

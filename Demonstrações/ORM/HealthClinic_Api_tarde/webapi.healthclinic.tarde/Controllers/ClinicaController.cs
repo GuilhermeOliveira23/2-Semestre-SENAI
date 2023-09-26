@@ -38,6 +38,26 @@ namespace webapi.healthclinic.tarde.Controllers
 
         }
 
+        [HttpDelete]
+        public IActionResult Delete(Guid id)
+        {
+            try
+            {
+
+            _clinicaRepository.Deletar(id);
+                return NoContent();
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+                throw;
+            }
+            
+
+
+
+        }
+
 
     }
 }

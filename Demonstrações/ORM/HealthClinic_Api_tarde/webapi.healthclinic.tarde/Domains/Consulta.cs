@@ -30,14 +30,11 @@ namespace webapi.healthclinic.tarde.Domains
         [Column(TypeName ="VARCHAR(100)")]
         [Required(ErrorMessage = "Id do médico é obrigatório")]
         public string? Descricao { get; set; }
-        [NotMapped]
-        [Column(TypeName = "DATE")]
+        
+        [Column(TypeName = "DATETIME")]
         [Required(ErrorMessage = "Data do agendamento é obrigatória")]
-        public DateOnly DataAgendamento { get; set; }
-        [NotMapped]
-        [Column(TypeName = "TIME")]
-        [Required(ErrorMessage = "Horário do agendamento é obrigatório")]
-        public TimeOnly Horario { get; set; }
+        public DateTime? DataAgendamento { get; set; }
+        
 
     }
 }

@@ -7,7 +7,7 @@ namespace webapi.healthclinic.tarde.Domains
     public class TipoUsuario
     {
         [Key]
-        public Guid IdUsuario { get; set; } = Guid.NewGuid();
+        public Guid IdTipoUsuario { get; set; } = Guid.NewGuid();
 
         [Column(TypeName = "VARCHAR(100)")]
         [Required(ErrorMessage = "Titulo do tipo de usuario obrigatório!")]

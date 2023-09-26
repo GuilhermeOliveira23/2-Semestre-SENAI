@@ -58,6 +58,10 @@ namespace webapi.healthclinic.tarde.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<DateTime?>("DataAgendamento")
+                        .IsRequired()
+                        .HasColumnType("DATETIME");
+
                     b.Property<string>("Descricao")
                         .IsRequired()
                         .HasColumnType("VARCHAR(100)");
@@ -184,7 +188,7 @@ namespace webapi.healthclinic.tarde.Migrations
 
             modelBuilder.Entity("webapi.healthclinic.tarde.Domains.TipoUsuario", b =>
                 {
-                    b.Property<Guid>("IdUsuario")
+                    b.Property<Guid>("IdTipoUsuario")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
@@ -192,7 +196,7 @@ namespace webapi.healthclinic.tarde.Migrations
                         .IsRequired()
                         .HasColumnType("VARCHAR(100)");
 
-                    b.HasKey("IdUsuario");
+                    b.HasKey("IdTipoUsuario");
 
                     b.ToTable("TipoUsuario");
                 });
