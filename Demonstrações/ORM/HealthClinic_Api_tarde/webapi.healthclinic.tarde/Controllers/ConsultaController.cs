@@ -9,25 +9,26 @@ namespace webapi.healthclinic.tarde.Controllers
     [Route("api/[controller]")]
     [ApiController]
     [Produces("application/json")]
-    public class UsuarioController : ControllerBase
+    public class ConsultaController : ControllerBase
     {
-        private readonly IUsuarioRepository _usuarioRepository;
+        private IConsultaRepository _consultaRepository;
 
-
-        public UsuarioController()
+        public ConsultaController()
         {
 
-            _usuarioRepository = new UsuarioRepository();
-
+            _consultaRepository = new ConsultaRepository();
         }
 
+
+
         [HttpPost]
-        public IActionResult Post(Usuario usuario)
+        public IActionResult Post(Consulta consulta)
         {
+
 
             try
             {
-                _usuarioRepository.Cadastrar(usuario);
+                _consultaRepository.Cadastrar(consulta);
                 return StatusCode(201);
 
             }
@@ -43,10 +44,10 @@ namespace webapi.healthclinic.tarde.Controllers
         [HttpDelete]
         public IActionResult Delete(Guid id)
         {
-
             try
             {
-                _usuarioRepository.Deletar(id);
+
+                _consultaRepository.Deletar(id);
                 return NoContent();
             }
             catch (Exception e)
@@ -54,36 +55,18 @@ namespace webapi.healthclinic.tarde.Controllers
                 return BadRequest(e.Message);
                 throw;
             }
-
-        }
-
-
-        [HttpGet]
-        public IActionResult Get(Guid id)
-        {
-
-            try
-            {
-                
-                return Ok(_usuarioRepository.Listar());
-            }
-            catch (Exception e)
-            {
-                return BadRequest(e.Message);
-                throw;
-            }
-
 
 
         }
 
         [HttpPut("{id}")]
-        public IActionResult Put(Usuario usuario, Guid id)
+
+        public IActionResult Put(Consulta consulta, Guid id)
         {
             try
             {
-                _usuarioRepository.Atualizar(id, usuario);
-                return NoContent();
+                _consultaRepository.Atualizar(consulta, id);
+                return StatusCode(201);
             }
             catch (Exception e)
             {
@@ -95,15 +78,33 @@ namespace webapi.healthclinic.tarde.Controllers
 
         }
 
-
-        [HttpGet("{id}")]
-        public IActionResult GetById(Guid id)
+        [HttpGet("BuscarPorIdMedico")]
+        public IActionResult GetByIdMedico(Guid id) 
+       
         {
-
             try
             {
-                
-                return Ok(_usuarioRepository.BuscarPorId(id));
+                return Ok(_consultaRepository.BuscarPorIdMedico(id));
+
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+                throw;
+            }
+        
+        
+        }
+
+
+        [HttpGet("BuscarPorIdPaciente")]
+        public IActionResult GetByIdPaciente(Guid id)
+
+        {
+            try
+            {
+                return Ok(_consultaRepository.BuscarPorIdPaciente(id));
+
             }
             catch (Exception e)
             {
@@ -114,7 +115,22 @@ namespace webapi.healthclinic.tarde.Controllers
 
         }
 
+        [HttpGet]
+        public IActionResult Get()
+        {
+            try
+            {
+                return Ok(_consultaRepository.Listar());
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+                throw;
+            }
 
+
+
+        }
 
 
     }

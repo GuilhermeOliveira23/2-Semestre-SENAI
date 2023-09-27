@@ -1,6 +1,18 @@
 using Microsoft.IdentityModel.Tokens;
+using Newtonsoft.Json;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services
+    .AddControllers()
+        .AddNewtonsoftJson(options =>
+        {
+            // Ignora os loopings nas consultas
+            options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+            // Ignora valores nulos ao fazer junções nas consultas
+            options.SerializerSettings.NullValueHandling = NullValueHandling.Ignore;
+        }
+    );
 
 // Add services to the container.
 
@@ -9,7 +21,9 @@ builder.Services.AddAuthentication(options =>
 {
     options.DefaultChallengeScheme = "JwtBearer";
     options.DefaultAuthenticateScheme = "JwtBearer";
-}).AddJwtBearer("JwtBearer", options =>
+})
+    
+    .AddJwtBearer("JwtBearer", options =>
 {
     options.TokenValidationParameters = new TokenValidationParameters
     {
@@ -42,6 +56,7 @@ builder.Services.AddEndpointsApiExplorer();
 
 
 builder.Services.AddSwaggerGen();
+
 
 var app = builder.Build();
 

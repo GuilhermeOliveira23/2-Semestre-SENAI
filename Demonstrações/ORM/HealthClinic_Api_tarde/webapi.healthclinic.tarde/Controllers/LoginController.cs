@@ -20,52 +20,60 @@ namespace webapi.healthclinic.tarde.Controllers
 
         public LoginController()
         {
-
             _usuarioRepository = new UsuarioRepository();
         }
 
         [HttpPost]
         public IActionResult Login(LoginViewModel usuario)
         {
-
             try
             {
+                //busca usuário por email e senha 
                 Usuario usuarioBuscado = _usuarioRepository.BuscarPorEmailSenha(usuario.Email!, usuario.Senha!);
+
+                //caso não encontre
                 if (usuarioBuscado == null)
                 {
+                    //retorna 401 - sem autorização
                     return StatusCode(401, "Email ou senha inválidos!");
                 }
-                //lógica para o token, claims são informações
 
+
+                //caso encontre, prossegue para a criação do token
+
+                //informações que serão fornecidas no token
                 var claims = new[]
                 {
                     new Claim(JwtRegisteredClaimNames.Email, usuarioBuscado.Email!),
-                    new Claim(JwtRegisteredClaimNames.Name, usuarioBuscado.Nome!),
-                    new Claim(JwtRegisteredClaimNames.Jti, usuarioBuscado.IdUsuario.ToString()!),
-                    new Claim(ClaimTypes.Role, usuarioBuscado.TipoUsuario!.Titulo!)
+                    new Claim(JwtRegisteredClaimNames.Name,usuarioBuscado.Nome!),
+                    new Claim(JwtRegisteredClaimNames.Jti, usuarioBuscado.IdUsuario.ToString()),
+                    new Claim(ClaimTypes.Role, usuarioBuscado.TipoUsuario!.Titulo!),
                 };
 
+                //chave de segurança
                 var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("projeto-healthclinic-webapi-chave-autenticacao-ef"));
+
+                //credenciais
                 var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
-                var token = new JwtSecurityToken(
-                    issuer: "webapi.healthclinic.tarde",
-                    audience: "webapi.healthclinic.tarde",
-                    claims: claims,
-                    expires: DateTime.Now.AddMinutes(5),
-                    signingCredentials: creds
+
+                //token
+                var meuToken = new JwtSecurityToken(
+                        issuer: "webapi.healthclinic.tarde",
+                        audience: "webapi.healthclinic.tarde",
+                        claims: claims,
+                        expires: DateTime.Now.AddMinutes(5),
+                        signingCredentials: creds
                     );
 
                 return Ok(new
                 {
-                    token = new JwtSecurityTokenHandler().WriteToken(token)
+                    token = new JwtSecurityTokenHandler().WriteToken(meuToken)
                 });
             }
-            catch (Exception e)
+            catch (Exception error)
             {
-                return BadRequest(e.Message);
-                throw;
+                return BadRequest(error.Message);
             }
-
         }
     }
 }

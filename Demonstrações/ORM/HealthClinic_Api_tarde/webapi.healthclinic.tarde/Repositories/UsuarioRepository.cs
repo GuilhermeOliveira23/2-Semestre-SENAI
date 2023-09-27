@@ -1,4 +1,5 @@
-﻿using webapi.healthclinic.tarde.Contexts;
+﻿using Microsoft.EntityFrameworkCore;
+using webapi.healthclinic.tarde.Contexts;
 using webapi.healthclinic.tarde.Domains;
 using webapi.healthclinic.tarde.Interfaces;
 using webapi.healthclinic.tarde.Utils;
@@ -37,40 +38,36 @@ namespace webapi.healthclinic.tarde.Repositories
             try
             {
                 Usuario usuarioBuscado = ctx.Usuario
+                    .Select(u => new Usuario
+                    {
+                        IdUsuario = u.IdUsuario,
+                        Nome = u.Nome,
+                        Email = u.Email,
+                        Senha = u.Senha,
 
-                .Select(u => new Usuario
-                 {
-                     IdUsuario = u.IdUsuario,
-                     Email = u.Email,
-                     Senha = u.Senha,
-
-                     TipoUsuario = new TipoUsuario()
-                     {
-                         IdTipoUsuario = u.IdTipoUsuario,
-
-                         Titulo = u.TipoUsuario!.Titulo
-
-                     }
-                 }).FirstOrDefault( u => u.Email == email)!;
-
+                        TipoUsuario = new TipoUsuario
+                        {
+                            IdTipoUsuario = u.IdTipoUsuario,
+                            Titulo = u.TipoUsuario!.Titulo
+                        }
+                    }).FirstOrDefault(u => u.Email == email)!;
 
                 if (usuarioBuscado != null)
                 {
                     bool confere = Criptografia.CompararHash(senha, usuarioBuscado.Senha!);
+
                     if (confere)
                     {
                         return usuarioBuscado;
-
                     }
                 }
-                return null;
+                return null!;
             }
             catch (Exception)
             {
-
                 throw;
             }
-       
+
         }
 
         public Usuario BuscarPorId(Guid id)
@@ -80,9 +77,19 @@ namespace webapi.healthclinic.tarde.Repositories
 
         public void Cadastrar(Usuario usuario)
         {
-          
-            ctx.Usuario.Add(usuario);
-            ctx.SaveChanges();
+            try
+            {
+
+                usuario.Senha = Criptografia.GerarHash(usuario.Senha!);
+                ctx.Usuario.Add(usuario);
+
+
+                ctx.SaveChanges();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         public void Deletar(Guid id)

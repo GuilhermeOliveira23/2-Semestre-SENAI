@@ -26,7 +26,7 @@ namespace webapi.healthclinic.tarde.Domains
         public Especialidade? Especialidade { get; set; }
 
         //depois alterar para Char(n) e criar outra migration
-        [Column(TypeName = "VARCHAR(100)")]
+        [Column(TypeName = "CHAR(12)")]
         [Required(ErrorMessage = "CRM do médico é obrigatório")]
         [StringLength(12, ErrorMessage = "CRM deve conter menos de 12 caracteres!")]
         public string? CRM { get; set; }

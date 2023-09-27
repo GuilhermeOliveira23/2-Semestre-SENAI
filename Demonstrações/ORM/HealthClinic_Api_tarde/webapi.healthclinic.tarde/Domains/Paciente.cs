@@ -10,8 +10,12 @@ namespace webapi.healthclinic.tarde.Domains
         [Key]
         public Guid IdPaciente { get; set; } = Guid.NewGuid();
 
-        [Column(TypeName = "VARCHAR(100)")]
-        [Required(ErrorMessage = "Nome do paciente é obrigatório!")]
-        public string? Nome { get; set; }
+        [Column(TypeName = "CHAR(11)")]
+        [Required(ErrorMessage = "CPF do paciente é obrigatório!")]
+        [StringLength(11, ErrorMessage = "CPF não pode ter mais de 11 caracteres!")]
+        public string? CPF { get; set; }
+        [Column(TypeName = "INT")]
+        [Required(ErrorMessage = "Telefone do paciente é obrigatório!")]
+        public int? Telefone { get; set; }
     }
 }
