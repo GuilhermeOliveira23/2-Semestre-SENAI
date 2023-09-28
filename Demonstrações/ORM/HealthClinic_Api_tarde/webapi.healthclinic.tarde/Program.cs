@@ -1,5 +1,7 @@
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
 using Newtonsoft.Json;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -55,7 +57,56 @@ builder.Services.AddEndpointsApiExplorer();
 
 
 
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(options =>
+{
+    options.SwaggerDoc("v1", new OpenApiInfo
+    {
+        Version = "v1",
+        Title = "API Filmes Tarde",
+        Description = " API para gerenciar filmes e seus generos - introdução a sprint 2 - backend API",
+
+        Contact = new OpenApiContact
+        {
+            Name = "Senai informatica - Guilherme Gozzi Oliveira",
+            Url = new Uri("https://github.com/GuilhermeOliveira23"),
+
+        },
+
+    });
+
+    ///Configure o Swagger para usar o arquivo XML gerado com as instruções anteriores. 
+    // using System.Reflection;
+    var xmlFilename = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+    options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFilename));
+    //Usando a autenticação no swagger
+    options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme()
+    {
+        Name = "Authorization",
+        Type = SecuritySchemeType.ApiKey,
+        Scheme = "Bearer",
+        BearerFormat = "JWT",
+        In = ParameterLocation.Header,
+        Description = "Value: Bearer TokenJWT"
+
+    });
+
+    options.AddSecurityRequirement(new OpenApiSecurityRequirement()
+    {
+        {
+            new OpenApiSecurityScheme
+            {
+                Reference= new OpenApiReference
+                {
+                Type = ReferenceType.SecurityScheme,
+                Id = "Bearer"
+
+                }
+
+            },
+          new string[] {}
+        }
+    });
+});
 
 
 var app = builder.Build();
@@ -68,6 +119,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseAuthentication();
 
 app.UseAuthorization();
 

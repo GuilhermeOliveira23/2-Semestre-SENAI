@@ -45,9 +45,10 @@ namespace webapi.healthclinic.tarde.Controllers
                 var claims = new[]
                 {
                     new Claim(JwtRegisteredClaimNames.Email, usuarioBuscado.Email!),
-                    new Claim(JwtRegisteredClaimNames.Name,usuarioBuscado.Nome!),
                     new Claim(JwtRegisteredClaimNames.Jti, usuarioBuscado.IdUsuario.ToString()),
-                    new Claim(ClaimTypes.Role, usuarioBuscado.TipoUsuario!.Titulo!),
+                    new Claim(ClaimTypes.Role, usuarioBuscado.IdTipoUsuario!.ToString()),
+                    new Claim("Claim Personalizada", "Valor personalizado")
+                    
                 };
 
                 //chave de segurança

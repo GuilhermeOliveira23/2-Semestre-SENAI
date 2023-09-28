@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.HttpLogging;
+using Microsoft.EntityFrameworkCore;
 using webapi.healthclinic.tarde.Contexts;
 using webapi.healthclinic.tarde.Domains;
 using webapi.healthclinic.tarde.Interfaces;
@@ -53,5 +54,6 @@ namespace webapi.healthclinic.tarde.Repositories
                 ctx.SaveChanges();
             }
         }
+
     }
 }

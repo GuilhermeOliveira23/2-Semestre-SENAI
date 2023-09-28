@@ -80,3 +80,5 @@ C:\Users\54823324897\Desktop\2-Semestre-SENAI\Demonstrações\ORM\HealthClinic_A
 C:\Users\54823324897\Desktop\2-Semestre-SENAI\Demonstrações\ORM\HealthClinic_Api_tarde\webapi.healthclinic.tarde\obj\Debug\net7.0\webapi.healthclinic.tarde.pdb
 C:\Users\54823324897\Desktop\2-Semestre-SENAI\Demonstrações\ORM\HealthClinic_Api_tarde\webapi.healthclinic.tarde\obj\Debug\net7.0\webapi.healthclinic.tarde.genruntimeconfig.cache
 C:\Users\54823324897\Desktop\2-Semestre-SENAI\Demonstrações\ORM\HealthClinic_Api_tarde\webapi.healthclinic.tarde\obj\Debug\net7.0\ref\webapi.healthclinic.tarde.dll
+C:\Users\54823324897\Desktop\2-Semestre-SENAI\Demonstrações\ORM\HealthClinic_Api_tarde\webapi.healthclinic.tarde\bin\Debug\net7.0\webapi.healthclinic.tarde.xml
+C:\Users\54823324897\Desktop\2-Semestre-SENAI\Demonstrações\ORM\HealthClinic_Api_tarde\webapi.healthclinic.tarde\obj\Debug\net7.0\webapi.healthclinic.tarde.xml

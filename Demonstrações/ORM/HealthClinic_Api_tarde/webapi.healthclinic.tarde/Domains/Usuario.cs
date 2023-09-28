@@ -27,7 +27,7 @@ namespace webapi.healthclinic.tarde.Domains
 
         [Column(TypeName = "VARCHAR(100)")]
         [Required(ErrorMessage = "Senha do tipo usuario obrigatório!")]
-        [StringLength(20, MinimumLength = 6 , ErrorMessage = "Senha deve conter de 6 a 20 caracteres")]
+        [StringLength(60, MinimumLength = 6 , ErrorMessage = "Senha deve conter de 6 a 60 caracteres")]
         public string? Senha { get; set; }
 
     }

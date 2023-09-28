@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using webapi.healthclinic.tarde.Domains;
 using webapi.healthclinic.tarde.Interfaces;
@@ -22,6 +23,7 @@ namespace webapi.healthclinic.tarde.Controllers
 
 
         [HttpPost]
+        
         public IActionResult Post(Consulta consulta)
         {
 
@@ -79,6 +81,7 @@ namespace webapi.healthclinic.tarde.Controllers
         }
 
         [HttpGet("BuscarPorIdMedico")]
+        [Authorize(Roles = "8EC0E323-20C9-4E5F-B91F-18F3B67EC39C")]
         public IActionResult GetByIdMedico(Guid id) 
        
         {
@@ -93,11 +96,11 @@ namespace webapi.healthclinic.tarde.Controllers
                 throw;
             }
         
-        
         }
 
 
         [HttpGet("BuscarPorIdPaciente")]
+        
         public IActionResult GetByIdPaciente(Guid id)
 
         {

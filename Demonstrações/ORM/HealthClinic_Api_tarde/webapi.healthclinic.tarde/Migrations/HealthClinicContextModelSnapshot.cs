@@ -233,7 +233,7 @@ namespace webapi.healthclinic.tarde.Migrations
 
                     b.Property<string>("Senha")
                         .IsRequired()
-                        .HasMaxLength(20)
+                        .HasMaxLength(60)
                         .HasColumnType("VARCHAR(100)");
 
                     b.HasKey("IdUsuario");

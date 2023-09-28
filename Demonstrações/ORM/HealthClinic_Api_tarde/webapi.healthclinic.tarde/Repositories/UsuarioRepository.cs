@@ -37,7 +37,7 @@ namespace webapi.healthclinic.tarde.Repositories
         {
             try
             {
-                Usuario usuarioBuscado = ctx.Usuario
+               Usuario usuarioBuscado = ctx.Usuario
                     .Select(u => new Usuario
                     {
                         IdUsuario = u.IdUsuario,
@@ -81,6 +81,7 @@ namespace webapi.healthclinic.tarde.Repositories
             {
 
                 usuario.Senha = Criptografia.GerarHash(usuario.Senha!);
+
                 ctx.Usuario.Add(usuario);
 
 
@@ -107,5 +108,6 @@ namespace webapi.healthclinic.tarde.Repositories
         {
             return ctx.Usuario.ToList();
         }
+
     }
 }
