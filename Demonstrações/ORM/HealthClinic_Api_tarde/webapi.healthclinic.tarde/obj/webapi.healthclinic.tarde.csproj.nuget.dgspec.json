@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\54823324897\\Desktop\\2-Semestre-SENAI\\Demonstrações\\ORM\\HealthClinic_Api_tarde\\webapi.healthclinic.tarde\\webapi.healthclinic.tarde.csproj": {}
+    "C:\\Users\\54823324897\\Desktop\\Repositórios\\2-Semestre-SENAI\\Demonstrações\\ORM\\HealthClinic_Api_tarde\\webapi.healthclinic.tarde\\webapi.healthclinic.tarde.csproj": {}
   },
   "projects": {
-    "C:\\Users\\54823324897\\Desktop\\2-Semestre-SENAI\\Demonstrações\\ORM\\HealthClinic_Api_tarde\\webapi.healthclinic.tarde\\webapi.healthclinic.tarde.csproj": {
+    "C:\\Users\\54823324897\\Desktop\\Repositórios\\2-Semestre-SENAI\\Demonstrações\\ORM\\HealthClinic_Api_tarde\\webapi.healthclinic.tarde\\webapi.healthclinic.tarde.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\54823324897\\Desktop\\2-Semestre-SENAI\\Demonstrações\\ORM\\HealthClinic_Api_tarde\\webapi.healthclinic.tarde\\webapi.healthclinic.tarde.csproj",
+        "projectUniqueName": "C:\\Users\\54823324897\\Desktop\\Repositórios\\2-Semestre-SENAI\\Demonstrações\\ORM\\HealthClinic_Api_tarde\\webapi.healthclinic.tarde\\webapi.healthclinic.tarde.csproj",
         "projectName": "webapi.healthclinic.tarde",
-        "projectPath": "C:\\Users\\54823324897\\Desktop\\2-Semestre-SENAI\\Demonstrações\\ORM\\HealthClinic_Api_tarde\\webapi.healthclinic.tarde\\webapi.healthclinic.tarde.csproj",
+        "projectPath": "C:\\Users\\54823324897\\Desktop\\Repositórios\\2-Semestre-SENAI\\Demonstrações\\ORM\\HealthClinic_Api_tarde\\webapi.healthclinic.tarde\\webapi.healthclinic.tarde.csproj",
         "packagesPath": "C:\\Users\\54823324897\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\54823324897\\Desktop\\2-Semestre-SENAI\\Demonstrações\\ORM\\HealthClinic_Api_tarde\\webapi.healthclinic.tarde\\obj\\",
+        "outputPath": "C:\\Users\\54823324897\\Desktop\\Repositórios\\2-Semestre-SENAI\\Demonstrações\\ORM\\HealthClinic_Api_tarde\\webapi.healthclinic.tarde\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\54823324897\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -43,6 +43,10 @@
             "BCrypt.Net-Next": {
               "target": "Package",
               "version": "[4.0.3, )"
+            },
+            "ErikEJ.EntityFrameworkCore.SqlServer.DateOnlyTimeOnly": {
+              "target": "Package",
+              "version": "[7.0.5, )"
             },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",

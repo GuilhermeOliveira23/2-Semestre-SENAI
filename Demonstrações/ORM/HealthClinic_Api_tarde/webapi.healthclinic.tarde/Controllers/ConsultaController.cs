@@ -23,7 +23,7 @@ namespace webapi.healthclinic.tarde.Controllers
 
 
         [HttpPost]
-        
+        [Authorize(Roles = "Administrador")]
         public IActionResult Post(Consulta consulta)
         {
 
@@ -44,6 +44,7 @@ namespace webapi.healthclinic.tarde.Controllers
         }
 
         [HttpDelete]
+        [Authorize(Roles = "Administrador")]
         public IActionResult Delete(Guid id)
         {
             try
@@ -62,6 +63,8 @@ namespace webapi.healthclinic.tarde.Controllers
         }
 
         [HttpPut("{id}")]
+        [Authorize(Roles = "Administrador")]
+
 
         public IActionResult Put(Consulta consulta, Guid id)
         {
@@ -81,7 +84,7 @@ namespace webapi.healthclinic.tarde.Controllers
         }
 
         [HttpGet("BuscarPorIdMedico")]
-        [Authorize(Roles = "8EC0E323-20C9-4E5F-B91F-18F3B67EC39C")]
+        [Authorize(Roles = "Médico")]
         public IActionResult GetByIdMedico(Guid id) 
        
         {
@@ -100,7 +103,8 @@ namespace webapi.healthclinic.tarde.Controllers
 
 
         [HttpGet("BuscarPorIdPaciente")]
-        
+        [Authorize(Roles = "Paciente")]
+
         public IActionResult GetByIdPaciente(Guid id)
 
         {
@@ -119,6 +123,7 @@ namespace webapi.healthclinic.tarde.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "Administrador")]
         public IActionResult Get()
         {
             try

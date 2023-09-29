@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Data;
 using webapi.healthclinic.tarde.Domains;
 using webapi.healthclinic.tarde.Interfaces;
 using webapi.healthclinic.tarde.Repositories;
@@ -24,6 +26,7 @@ namespace webapi.healthclinic.tarde.Controllers
 
 
         [HttpPost]
+        [Authorize(Roles = "Administrador")]
         public IActionResult Post(Especialidade especialidade)
         {
 
@@ -43,6 +46,7 @@ namespace webapi.healthclinic.tarde.Controllers
         }
 
         [HttpDelete]
+        [Authorize(Roles = "Administrador")]
         public IActionResult Delete(Guid id)
         {
             try

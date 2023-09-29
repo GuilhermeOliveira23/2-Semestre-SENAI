@@ -21,3 +21,14 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1lZGljb0BnbWFpbC5jb20iLCJqdGk
 
 
 https://github.com/senai-desenvolvimento/2023-1S-2D/blob/main/sprint-2-api/api_tarde/webapi.filmes.tarde/Controllers/GeneroController.cs
+
+{
+  "cnpj": "string",
+  "nomeFantasia": "string",
+  "razaoSocial": "string",
+  "endereco": "string",
+//Formato TimeSpan em hora no swagger ->
+
+  "horaAbertura": "06:20",
+  "horaFechamento": "09:20"
+}
