@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Quando submetido, rodar uma função -->
+    <form onsubmit="saudar()">
+
+        <input type="text" id="nome" placeholder="Nome:">
+        <br><br>
+        <input type="text" id="nick" placeholder="Nickname:">
+        <br><br>
+        
+        <p>Olá <strong id="saudacao">??</strong></p>
+        
+                <button>Enviar</button>
+        
+        </form>
+        
+        
+        
+            <script>
+                function saudar(){
+                    // captura o submit do form
+                    event.preventDefault();
+
+                //Guardar esses dados em variáveis
+                let nome = document.getElementById("nome").value
+                let nickname = document.getElementById("nick").value
+                let res;
+                // usar o replace pra substituir o valor de nome para nickname
+                res = nome.replace(nome,nickname)
+                //innerText seleciona o texto de dentro do strong
+               document.getElementById('saudacao').innerText = res;
+                    
+                }
+               
+            </script>
+</body>
+</html>

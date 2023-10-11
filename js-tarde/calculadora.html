@@ -8,7 +8,8 @@
 </head>
 <body>
     <h1>Simple Calculator</h1>
-    <form>
+
+    <form onsubmit="calcular()">
         <label for="numero1">Primeiro Número</label>
         <input type="number" id = "numero1"placeholder="Primero Número">
         <br><br>
@@ -18,9 +19,9 @@
         <br><br>
         
         <label for="operacao">Operação</label>
-        <select name="" id="operacao">
+        <select name="operacao" id="operacao">
 
-            <option value="Selecione">Selecione</option>
+            <option value="">Selecione</option>
             <option value="+">Soma</option>
             <option value="-">Subtração</option>
             <option value="/">Divisão</option>
@@ -28,64 +29,13 @@
 
         </select>
 
-        <button onclick="calcular()">Calcular</button>
+        <p>Resultado: <strong id="resultado">??</strong></p>
+
+        <button>Calcular</button>
 
     </form>
 
-    <script>
-
-        function calcular () 
-        {
-            event.preventDefault();//interrompe o submit do formulário
-
-            let n1 = document.getElementById("numero1").value;
-            let n2 = document.getElementById("numero2").value;
-            let res;
-            let op = document.getElementById("operacao").value;
-
-            if (op == '+') {
-                res = somar(parseFloat(n1),parseFloat(n2));
-                console.log(`Resultado: ${res}`);
-            }
-            else if(op == '-'){
-                res = subtrair(parseFloat(n1),parseFloat(n2));
-                cosole.log(`Resultado: ${res}`);
-            }
-            else if(op == '/'){
-                res = dividir(parseFloat(n1),parseFloat(n2));
-                cosole.log(`Resultado: ${res}`);
-            }
-            else if(op == '*'){
-                res = multiplicar(parseFloat(n1),parseFloat(n2));
-                cosole.log(`Resultado: ${res}`);
-            }
-            else if(op == 'Selecione')
-            {
-                alert("Operação Inválida");
-            }
-
-
-    
-
-        } //fim da função calcular
-        function somar(x,y)
-        {
-            return x + y;
-        }
-        function subtrair(x,y)
-        {
-            return x - y;
-        }
-        function multiplicar(x,y)
-        {
-            return x * y;
-        }
-        function dividir(x,y)
-        {
-            return x / y;
-        }
-
-    </script>
+    <script src="./scripts/funcoes.js"></script>
     
 </body>
 </html>
