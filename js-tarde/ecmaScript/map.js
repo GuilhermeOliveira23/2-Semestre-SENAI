@@ -37,8 +37,9 @@ comentariosOk.forEach((c)=>{
     console.log(c.comentario);
 })
 
+//Reduce - valor unificado do array
 const soma = numeros.reduce((vlInicial,n) => {
     return vlInicial + n  
-} , 0)
+} , 20)
 
 console.log(soma);

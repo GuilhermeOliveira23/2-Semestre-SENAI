@@ -23,7 +23,7 @@ const convidados = [
  {nome: "Murilo", idade: 17},
  {nome: "Rebeca", idade: 17},
  {nome: "Eduardo", idade: 36},
- {nome: "Carlos", idade: 42}
+ {nome: "João", idade: 42}
 
 ];
 
