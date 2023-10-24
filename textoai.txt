@@ -1,0 +1,26 @@
+Qual é a diferença entre state e props?
+props (abreviação de ”properties”) e state são ambos objetos JavaScript.
+ Apesar de ambos guardarem informações que influenciam no resultado da renderização,
+ eles são diferentes por uma razão importante: props são passados para o componente (como parâmetros de funções),
+ enquanto state é gerenciado de dentro do componente (como variáveis declaradas dentro de uma função).
+
+setState
+State
+
+setState() agenda uma atualização para o objeto state de um componente.
+ Quando o state muda, o componente responde renderizando novamente.
+
+
+
+State permite que os componentes do React alterem seu resultado com o passar do tempo em resposta às ações dos usuários,
+ respostas da rede e todo o resto, sem violar esta regra.
+Componentes definidos como classes têm alguns recursos adicionais.
+ State local é um recurso disponível apenas para componentes de classe.
+
+O State é basicamente um elemento que armazena valores de propriedades que pertencem ao componente,
+quando estes mudam seu estado de alguma forma,
+os mesmos são renderizados novamente, permitindo alterar os valores exibidos na tela em tempo real.
+Esta funcionalidade não trabalha com variáveis comuns.
+É utilizado quando há a necessidade de associar um valor renderizado com uma variável,
+ de forma que ao mudar o valor desta, será mostrado no componente (sendo renderizado novamente). 
+Permite alterar os valores exibidos na tela em tempo real
