@@ -1,0 +1,28 @@
+.card{
+    width: 250px;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px solid black;
+    text-align: center;
+    font-size: 18px;
+    border-radius: 4px;
+}
+.card__connect{
+
+width: 85px;
+height: 27px;
+background-color: white;
+border: none;
+color: red;
+font-size: 16px;
+font-weight: 700;
+
+
+}
+.card__connect:hover{
+    opacity: .6;
+    
+}
