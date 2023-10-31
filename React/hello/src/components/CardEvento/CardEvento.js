@@ -1,3 +1,4 @@
+import React from 'react';
 import './CardEvento.css'
 const CardEvento = ({titulo,texto,desabilitar,textoLink}) =>{
     return (
