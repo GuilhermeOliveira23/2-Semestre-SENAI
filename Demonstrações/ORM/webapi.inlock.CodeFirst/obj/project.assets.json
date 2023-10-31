@@ -3111,19 +3111,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\54823324897\\.nuget\\packages\\": {}
+    "C:\\Users\\User\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\54823324897\\Desktop\\2-Semestre-SENAI\\Demonstrações\\ORM\\webapi.inlock.CodeFirst\\webapi.inlock.CodeFirst.csproj",
+      "projectUniqueName": "C:\\Users\\User\\Desktop\\2-Semestre-SENAI\\Demonstrações\\ORM\\webapi.inlock.CodeFirst\\webapi.inlock.CodeFirst.csproj",
       "projectName": "webapi.inlock.CodeFirst",
-      "projectPath": "C:\\Users\\54823324897\\Desktop\\2-Semestre-SENAI\\Demonstrações\\ORM\\webapi.inlock.CodeFirst\\webapi.inlock.CodeFirst.csproj",
-      "packagesPath": "C:\\Users\\54823324897\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\54823324897\\Desktop\\2-Semestre-SENAI\\Demonstrações\\ORM\\webapi.inlock.CodeFirst\\obj\\",
+      "projectPath": "C:\\Users\\User\\Desktop\\2-Semestre-SENAI\\Demonstrações\\ORM\\webapi.inlock.CodeFirst\\webapi.inlock.CodeFirst.csproj",
+      "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\User\\Desktop\\2-Semestre-SENAI\\Demonstrações\\ORM\\webapi.inlock.CodeFirst\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\54823324897\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -3205,7 +3205,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
       }
     }
   }
