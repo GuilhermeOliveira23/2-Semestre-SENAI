@@ -10,6 +10,12 @@ namespace webapi.event_.tarde.Interfaces
 
         Usuario BuscarPorEmailSenha(string email, string senha);
 
+        void Deletar(Guid id);
+
+        void Atualizar(Guid id, Usuario usuario);
+
+        List<Usuario> Listar();
+
         
 
 

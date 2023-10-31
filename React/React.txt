@@ -1,0 +1,6 @@
+npm install
+npm start
+
+
+npx {nome do script} start
+para executar um script
